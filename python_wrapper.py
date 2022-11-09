@@ -26,16 +26,16 @@ usage = {
 }
 
 
-def wrapper(filename :str,functionname: str,linenumber:int):
+def wrapper(filepath :str,functionname: str,linenumber:int):
     #filename = str(os.path.realpath(__file__))  #to get the current file path
-    file = open(filename)                       # open it in 'read mode'
+    file = open(filepath)                       # open it in 'read mode'
 
     #print(hints[functionname])
 
     lines = file.readlines()                   # stores all the lines in a list for future
     #print(lines[7])
 
-    file = open(filename,'w')                  # open the file in 'write mode'
+    file = open(filepath,'w')                  # open the file in 'write mode'
 
     for i in range(linenumber-1):              # rewritting
         file.write(lines[i])
