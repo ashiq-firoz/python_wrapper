@@ -14,8 +14,8 @@ Wrapping tool for python
 * Copy the file and paste it in libs folder in the python directory inside c:/programs/users/name/AppData/programs
 
 # How to Use
-
-* import python_wrapper as pw
+<br>
+import python_wrapper as pw
 <br>
  pw.wrapper(os.path.realpath(__file__),'class',5)
   
