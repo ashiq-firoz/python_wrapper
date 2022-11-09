@@ -16,7 +16,8 @@ Wrapping tool for python
 # How to Use
 
 * import python_wrapper as pw
-* pw.wrapper(os.path.realpath(__file__),'class',5)
+<br>
+ pw.wrapper(os.path.realpath(__file__),'class',5)
   
   *os.path.realpath(__file__) -> to get the path of your current py file
   *class or if or else or anything that need to be wrapped
