@@ -25,25 +25,38 @@ usage = {
     6:"class Name:",
 }
 
+def help():
+    print("Python Wrapper -help ")
+    print("Basic Command -")
+    print("pythonwrapper.wrapper(os.path.realpath(_file_),'def',5,10)")
 
-def wrapper(filepath :str,functionname: str,linenumber:int):
+
+def wrapper(filename :str,functionname: str,linenumber:int, lastlinenumber:int):
     #filename = str(os.path.realpath(__file__))  #to get the current file path
-    file = open(filepath)                       # open it in 'read mode'
+    file = open(filename)                       # open it in 'read mode'
 
     #print(hints[functionname])
 
     lines = file.readlines()                   # stores all the lines in a list for future
     #print(lines[7])
 
-    file = open(filepath,'w')                  # open the file in 'write mode'
+    file = open(filename,'w')                  # open the file in 'write mode'
 
     for i in range(linenumber-1):              # rewritting
         file.write(lines[i])
-    
-    file.write(usage[hints[functionname]]+"\n")  #start editing from specified line
 
-    for i in range(linenumber-1,len(lines)):     #using loop to complete editing
-        file.write("    "+lines[i])
+    presting = lines[linenumber-1]
+    presting = presting.split('    ')
+    add_string = ''
+    print(presting)
+    for j in presting:
+        if j=='':
+            add_string = add_string+'    '
+
+    file.write(add_string+usage[hints[functionname]]+"\n")  #start editing from specified line
+
+    for i in range(linenumber-1,lastlinenumber):     #using loop to complete editing
+        file.write('    '+lines[i])
     
     print("##################################################")   # alert
     print("***** Wrapping Completed *******")
